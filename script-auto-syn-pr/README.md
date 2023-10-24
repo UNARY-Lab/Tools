@@ -5,7 +5,7 @@
 2. Design files in verilog
 
 ## How to use
-To automate synthesis/place-and-route, simply put your design files as ```./src_v/design/module_top/module_top.v```, and run ```./auto_syn.sh```/```./auto_pr.sh```.
+To automate synthesis/place-and-route, simply put your design files as ```./src_v/design/module_top/module_top.v```, and run ```bash ./auto_syn.sh``` or ``` bash ./auto_pr.sh```.
 
 ## Where to use
 ### UW-Madison CAE machines
