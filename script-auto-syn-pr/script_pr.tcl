@@ -15,20 +15,20 @@ global design_path
 
 set design_file [format "%s%s" $design_name ".syn.vg"]
 set sdc_file [format "%s%s" $design_name ".syn.sdc"]
-set lib_path "/cae/apps/data/saed32_edk-2018/"
+set lib_path "/cae/apps/data/saed32_edk-2022/"
 
 # cd $workpath
 ############create library
 set DESIGN_LIBRARY ${design_name}_LR
 set target_library "
-/cae/apps/data/saed32_edk-2018/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p75v125c.db
-/cae/apps/data/saed32_edk-2018/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.db
-/cae/apps/data/saed32_edk-2018/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db
+/cae/apps/data/saed32_edk-2022/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p75v125c.db
+/cae/apps/data/saed32_edk-2022/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.db
+/cae/apps/data/saed32_edk-2022/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p85v25c.db
 "
-set search_path ". /cae/apps/data/saed32_edk-2018/lib/stdcell_rvt/db_nldm/"
+set search_path ". /cae/apps/data/saed32_edk-2022/lib/stdcell_rvt/db_nldm/"
 set link_library $target_library
-create_lib $DESIGN_LIBRARY -technology /cae/apps/data/saed32_edk-2018/tech/milkyway/saed32nm_1p9m_mw.tf
-set_ref_libs -library $DESIGN_LIBRARY -ref_libs /cae/apps/data/saed32_edk-2018/lib/stdcell_rvt/lef/saed32nm_rvt_1p9m.lef
+create_lib $DESIGN_LIBRARY -technology /cae/apps/data/saed32_edk-2022/tech/milkyway/saed32nm_1p9m_mw.tf
+set_ref_libs -library $DESIGN_LIBRARY -ref_libs /cae/apps/data/saed32_edk-2022/lib/stdcell_rvt/lef/saed32nm_rvt_1p9m.lef
 #open_lib [format "%s%s" $design_path "demo_icc2"]  
 ### ADD YOUR DESIGN
 read_verilog -top $design_name [format "%s%s" $design_path $design_file]
@@ -40,10 +40,10 @@ associate_mv_cells -all
 reset_design
 
 ### Tluplus Files
-set TLUPLUS_FILE(Cmax) 	"/cae/apps/data/saed32_edk-2018/tech/star_rcxt/saed32nm_1p9m_Cmax.tluplus"
-set TLUPLUS_FILE(Cmin) 	"/cae/apps/data/saed32_edk-2018/tech/star_rcxt/saed32nm_1p9m_Cmin.tluplus"
-set TLUPLUS_FILE(nominal) 	"/cae/apps/data/saed32_edk-2018/tech/star_rcxt/saed32nm_1p9m_nominal.tluplus"
-set TLUPLUS_MAP_FILE			"/cae/apps/data/saed32_edk-2018/tech/star_rcxt/saed32nm_tf_itf_tluplus.map"
+set TLUPLUS_FILE(Cmax) 	"/cae/apps/data/saed32_edk-2022/tech/star_rcxt/saed32nm_1p9m_Cmax.tluplus"
+set TLUPLUS_FILE(Cmin) 	"/cae/apps/data/saed32_edk-2022/tech/star_rcxt/saed32nm_1p9m_Cmin.tluplus"
+set TLUPLUS_FILE(nominal) 	"/cae/apps/data/saed32_edk-2022/tech/star_rcxt/saed32nm_1p9m_nominal.tluplus"
+set TLUPLUS_MAP_FILE			"/cae/apps/data/saed32_edk-2022/tech/star_rcxt/saed32nm_tf_itf_tluplus.map"
 ### SET TIMING AND CAP LIBRARIES
 set cornerData {
   {ss0p75v125c  ss  Cmax     0.99 125 0.75}
