@@ -105,7 +105,7 @@ set designer [get_unix_variable USER]
 set company  "ECE Dept., UW-Madison"
 
 # Search Path
-set search_path ". /cae/apps/data/saed32_edk-2018/lib/stdcell_rvt/db_nldm /cae/apps/data/saed32_edk-2018/lib/stdcell_lvt/db_nldm /cae/apps/data/saed32_edk-2018/lib/stdcell_hvt/db_nldm /cae/apps/data/saed32_edk-2018/lib/io_std/db_nldm"
+set search_path ". /cae/apps/data/saed32_edk-2022/lib/stdcell_rvt/db_nldm /cae/apps/data/saed32_edk-2022/lib/stdcell_lvt/db_nldm /cae/apps/data/saed32_edk-2022/lib/stdcell_hvt/db_nldm /cae/apps/data/saed32_edk-2022/lib/io_std/db_nldm"
 
 
 # Setup Libraries
