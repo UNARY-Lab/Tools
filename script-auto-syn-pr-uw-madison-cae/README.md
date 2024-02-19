@@ -34,4 +34,9 @@ Note that you do not need to worry about place and route for 552.
 ### UW-Madison CAE machines
 Rename ```./synopsys_dc.setup_32nm_rvt.uw_madison_cae``` to ```./synopsys_dc.setup_32nm_rvt```, and follow instructions in ***How to use***.
 ## Issues
-1. If you are getting library not found error on CAE machine, it's likely the department has updated the edk files. To align with the update, update the ```search_path``` [here](https://github.com/UNARY-Lab/Tools/blob/f9a0f6cf31ce9f35ea0938b0c2c2aeb5d2f2b945/script-auto-syn-pr/synopsys_dc.setup_32nm_rvt.uw_madison_cae#L108C5-L108C16).
+1. If you are getting library not found error on CAE machine, it's likely the department has updated the edk files. To align with the update, update the ```search_path``` in ```./synopsys_dc.setup_32nm_rvt.uw_madison_cae```.
+
+
+## Contributor
+1. [Di Wu](https://www.unarylab.com/)
+2. [Zhewen Pan](https://www.zhewenp.com/)
