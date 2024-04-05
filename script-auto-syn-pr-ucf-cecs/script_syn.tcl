@@ -1,36 +1,38 @@
 # ECE552 Extra Credit
 read_file -format verilog {dut.v}
 set current_design dut
+set clk_name iClk
+set rstn_name iRstN
 link
 
 ###########################################
 # Define clock and set don't mess with it #
 ###########################################
 # clk with frequency of 400 MHz
-create_clock -name "clk" -period 2.5 -waveform { 0 1.25 } { clk }
-set_false_path -from [get_ports rst_n]
+create_clock -name "clk_name" -period 2.5 -waveform { 0 1.25 } { clk_name }
+set_false_path -from [get_ports rstn_name]
 set compile_delete_unloaded_sequential_cells false
 set compile_seqmap_propagate_constants false
-set_dont_touch_network [find port clk]
-# pointer to all inputs except clk
-set prim_inputs [remove_from_collection [all_inputs] [find port clk]]
-# pointer to all inputs except clk and rst_n
-set prim_inputs_no_rst [remove_from_collection $prim_inputs [find port rst_n]]
+set_dont_touch_network [find port clk_name]
+# pointer to all inputs except clk_name
+set prim_inputs [remove_from_collection [all_inputs] [find port clk_name]]
+# pointer to all inputs except clk_name and rstn_name
+set prim_inputs_no_rst [remove_from_collection $prim_inputs [find port rstn_name]]
 # Set clk uncertainty (skew)
-set_clock_uncertainty 0.15 clk
+set_clock_uncertainty 0.15 clk_name
 
 #########################################
 # Set input delay & drive on all inputs #
 #########################################
-set_input_delay -clock clk 0.25 [copy_collection $prim_inputs]
+set_input_delay -clock clk_name 0.25 [copy_collection $prim_inputs]
 #set_driving_cell -lib_cell ND2D2BWP -library tcbn40lpbwptc $prim_inputs_no_rst
-# rst_n goes to many places so don't touch
-set_dont_touch_network [find port rst_n]
+# rst goes to many places so don't touch
+set_dont_touch_network [find port rstn_name]
 
 ##########################################
 # Set output delay & load on all outputs #
 ##########################################
-set_output_delay -clock clk 0.5 [all_outputs]
+set_output_delay -clock clk_name 0.5 [all_outputs]
 set_load 0.1 [all_outputs]
 
 #############################################################
@@ -54,7 +56,7 @@ set_flatten true
 uniquify -force
 ungroup -all -flatten
 # force hold time to be met for all flops
-set_fix_hold clk
+set_fix_hold clk_name
 
 # Compile again with higher effort
 compile -map_effort high
