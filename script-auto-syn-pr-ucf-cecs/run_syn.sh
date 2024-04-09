@@ -43,22 +43,41 @@ fi
 
 echo ""
 echo "Synthesize designs in *.v files:"
-if ls *.$vsuff; then
-    for dut in $(ls *.$vsuff)
-    do
-        dutname="${dut%.*}"
-        echo "Processing design $dutname in $dut..."
-        sed -i "s/dut/$dutname/g" $DCSCRIPT
-        rm -rf work/ *.vg *.vf
-        dc_shell -f $DCSCRIPT >| $dutname.syn.rpt
-        sed -i "s/$dutname/dut/g" $DCSCRIPT
-        echo "    Done"
-        sleep 10s
-    done
+
+# process only top design
+dutname="$(basename $PWD)"
+if [ -e $dutname.$vsuff ]
+then
+    echo "Find top design file <$dutname.$vsuff>."
 else
-    echo "No design exists."
-    return 0
+    echo "Missing top design file <$dutname.$vsuff>."
+    exit 0
 fi
+echo "Process design $dutname."
+sed -i "s/dut/$dutname/g" $DCSCRIPT
+rm -rf work/ *.vg *.vf
+dc_shell -f $DCSCRIPT >| $dutname.syn.rpt
+sed -i "s/$dutname/dut/g" $DCSCRIPT
+echo "    Complete."
+sleep 10s
+
+# process all designs
+# if ls *.$vsuff; then
+#     for dut in $(ls *.$vsuff)
+#     do
+#         dutname="${dut%.*}"
+#         echo "Processing design $dutname in $dut..."
+#         sed -i "s/dut/$dutname/g" $DCSCRIPT
+#         rm -rf work/ *.vg *.vf
+#         dc_shell -f $DCSCRIPT >| $dutname.syn.rpt
+#         sed -i "s/$dutname/dut/g" $DCSCRIPT
+#         echo "    Done"
+#         sleep 10s
+#     done
+# else
+#     echo "No design exists."
+#     return 0
+# fi
 
 echo ""
 echo "Check potential errors in log:"
