@@ -21,7 +21,7 @@ To automate synthesis/place-and-route, simply put your design files as ```./src_
 
     ```bash ./auto_syn.sh```
   
-3. When processing is finished, look for reports under ```32nm_rvt/module_top``` directory.
+3. When processing is finished, look for reports under ```32nm_rvt/<module_top>``` directory.
    
     1. Area results are located in ```<module_top>_area.syn.txt```.
     2. Power results are located in ```<module_top>_power.syn.txt```. Dynamic power is "Switching Power"; Static power is "Leakage Power"+"Internal Power".
