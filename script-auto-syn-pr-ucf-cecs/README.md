@@ -15,7 +15,7 @@ To automate synthesis/place-and-route, simply put your design files as ```./src_
    
 2. Run automated synthesis script.
 
-    ```./auto_syn.sh```
+    ```bash ./auto_syn.sh```
   
 3. When processing is finished, look for reports under ```32nm_rvt/module_top``` directory.
    
