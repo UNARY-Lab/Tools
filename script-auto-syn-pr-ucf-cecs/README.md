@@ -13,6 +13,8 @@ To automate synthesis/place-and-route, simply put your design files as ```./src_
 
 The <module_top>.v requires, if any, a clock signal named ```iClk``` and a reset signal named ```iRstN```.
 
+Be sure to delete any generated directory if you need to re-synthesize modules.
+
 ### Synthesis script
 
 1. Be sure your code has the hierarchy
