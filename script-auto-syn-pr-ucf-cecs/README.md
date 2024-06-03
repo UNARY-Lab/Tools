@@ -11,6 +11,8 @@ Rename ```./synopsys_dc.setup_32nm_rvt.ucf_cecs``` to ```./synopsys_dc.setup_32n
 ## How to use
 To automate synthesis/place-and-route, simply put your design files as ```./src_v/<design>/<module_top>/<module_top>.v```, and run ```bash ./auto_syn.sh``` and/or ``` bash ./auto_pr.sh```. Note that place-and-route commands have to be go after synthesis commands.
 
+The <module_top>.v requires, if any, a clock signal named ```iClk``` and a reset signal named ```iRstN```.
+
 ### Synthesis script
 
 1. Be sure your code has the hierarchy
