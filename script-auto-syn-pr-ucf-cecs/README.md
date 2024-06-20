@@ -6,7 +6,7 @@
 
 ## Where to use
 ### UCF CECS machines
-Rename ```./synopsys_dc.setup_32nm_rvt.ucf_cecs``` to ```./synopsys_dc.setup_32nm_rvt```, and follow instructions in ***How to use***.
+Rename ```./synopsys_dc.setup_32nm_rvt.ucf_cecs``` to ```./synopsys_dc.setup```, and follow instructions in ***How to use***.
 
 ## How to use
 To automate synthesis/place-and-route, simply put your design files as ```./src_v/<design>/<module_top>/<module_top>.v```, and run ```bash ./auto_syn.sh``` and/or ``` bash ./auto_pr.sh```. Note that place-and-route commands have to be go after synthesis commands.
