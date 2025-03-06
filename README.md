@@ -11,5 +11,5 @@ Automated scripts are located [here](https://github.com/UNARY-Lab/Tools/tree/mai
 ## Verification
 
 ### [Verilator](https://www.veripool.org/verilator/)
-Simple tutorials and demos (macOS) can be found [here](https://github.com/UNARY-Lab/Tools/tree/main/verilator-tutorial).
+Simple tutorials and demos (macOS) are located [here](https://github.com/UNARY-Lab/Tools/tree/main/verilator-tutorial).
 
