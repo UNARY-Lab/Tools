@@ -1,5 +1,5 @@
 # ECE552 Extra Credit
-read_file -format verilog {glob *.v}
+read_file -format verilog [glob *.v]
 set current_design dut
 set clk_name iClk
 set rstn_name iRstN
